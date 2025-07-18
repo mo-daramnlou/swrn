@@ -274,9 +274,14 @@ class StandardLearner():
 
         val_loader = self.dataset['val']
 
+        print("len", len(val_loader))
+
         save_path = pathlib.Path(self.log_dir) / 'output'
         save_path.mkdir(exist_ok=True)
         for i, data_pair in tqdm(enumerate(val_loader)):
+            if i <1:
+                print(data_pair)
+            # print("shape: ",data_pair.shape)
             pred_tensors = self.test_step(data_pair)
             for j, pred_tensor in enumerate(pred_tensors):
                 tf.keras.utils.save_img(

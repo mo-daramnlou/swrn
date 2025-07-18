@@ -9,7 +9,7 @@ dataset:
             num_parallel_calls: 16
         val:
             batch_size: 1
-    data_dir: /data/dataset/aim22/reds/
+    data_dir: /home/mohammad/Documents/uni/deeplearning/FinalProject/efficient_models/data/
     degradation: sharp_bicubic
     train_frame_num: 10
     test_frame_num: 100
@@ -37,4 +37,5 @@ learner:
         values: [0.001, 0.0005, 0.00025, 0.0001, 0.0005]
 
     saver:
-        restore_ckpt: snapshot/ckpt-98
+        # restore_ckpt: null
+        restore_ckpt: snapshot/ckpt-98.index

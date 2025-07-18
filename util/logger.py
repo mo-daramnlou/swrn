@@ -113,7 +113,9 @@ def _get_logger():
         # create logger with name 'mai_vsr'
         logger = logging.getLogger(_LOGGER_NAME)
         logger.setLevel(_LOG_LEVEL)
-        logger.findCaller = _find_caller
+        logger.findCaller = lambda stack_info=False, *args, **kwargs: _find_caller(
+            stack_info
+        )
 
         # log format, e.g. [mai_vsr:INFO] install.py:7: It is log message
         formatter = logging.Formatter(_LOG_FORMAT)
